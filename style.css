@@ -69,20 +69,23 @@ body > #container-contador {
 }
 #contadorVitorias {
     background-color: black;
-    margin-top: 30px; 
+    margin-top: 50px; 
     position: relative;
 }
 .count-bloco {
-    border: 1px solid white;
     height: 50px;
     width: 50px;
     margin-left: 50px;
 }
 #nomes {
     position: absolute;
+
 }
 #nomes input {
     width: 70px;
+    background-color: white;
+    font-family: fonte-bold;
+    font-size: 20px;
 }
 
 #nomes input:last-child{
@@ -93,6 +96,14 @@ body > #container-contador {
 .count-bloco img {
     height: 50px;
     margin-left: -7px;
+    position: absolute;
 
 }
 
+.blocoimg {
+    height: 70px;
+}
+
+.quadcont {
+    position: absolute;
+}
