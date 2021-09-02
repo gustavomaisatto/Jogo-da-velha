@@ -119,6 +119,23 @@ function reiniciarGame() {
     document.getElementById("c3").setAttribute("jogada", "")
 
     marcador()
+
+    //reiniciando Jogo e Rodadas
+
+    if (gameOverRodada) {
+    rodada = 0
+    gameOverRodada = false
+    vencedorRodada = ""
+    vencedorRodada1 = ""
+    vencedorRodada2 = ""
+    vencedorRodada3 = ""
+    document.getElementById("count1").innerHTML = ""
+    document.getElementById("count2").innerHTML = ""
+    document.getElementById("count3").innerHTML = ""
+    document.getElementById("count4").innerHTML = ""
+    document.getElementById("count5").innerHTML = ""
+    document.getElementById("count6").innerHTML = ""
+    }
 }
 
 function contador() {
@@ -178,18 +195,3 @@ async function vencRodada() {
     vencedorRodada = ""
 }
 
-function reiniciarRodada() {
-    rodada = 0
-    gameOverRodada = false
-    vencedorRodada = ""
-    vencedorRodada1 = ""
-    vencedorRodada2 = ""
-    vencedorRodada3 = ""
-    document.getElementById("count1").innerHTML = ""
-    document.getElementById("count2").innerHTML = ""
-    document.getElementById("count3").innerHTML = ""
-    document.getElementById("count4").innerHTML = ""
-    document.getElementById("count5").innerHTML = ""
-    document.getElementById("count6").innerHTML = ""
-
-}
