@@ -2,13 +2,21 @@ var player1 = "X"
 var player2 = "O"
 var playTime = player1
 var gameOver = false
+var gameOverRodada = false
+var primeiroPlayer = prompt('Jogador 1 Abrevie seu nome: você irá jogar com a peça X')
+var segundoPlayer = prompt('Jogador 2 Abrevie seu nome: você irá jogar com a peça "O"')
 
+var rodada = 0
+var vencedorRodada = ""
+var vencedorRodada1 = ""
+var vencedorRodada2 = ""
+var vencedorRodada3 = ""
 
 marcador()
 jogada()
-
+contador()
     function marcador() {
-        if (gameOver){
+        if (gameOver || gameOverRodada){
             return;
         }
         else if (playTime == player1) {
@@ -21,7 +29,7 @@ jogada()
             var button = document.getElementsByClassName('botao')
             for (var i = 0;i < button.length;i++){
            button[i].addEventListener ("click", function() {
-                if (gameOver) {return;}
+                if (gameOver || gameOverRodada) {return;}
                 if (this.getElementsByTagName("img").length == 0) {
                 if (playTime == player1) {
                     this.innerHTML = "<img src='imagens/letra-x.png'>"
@@ -52,10 +60,18 @@ async function vencedor () {
     var vencedor = ""
     if (((a1 == a2 && a1 == a3) || (a1 == b1 && a1 == c1) || (a1 == b2 && a1 == c3)) && a1 != ""){
         vencedor = a1
+        rodada++
+        vencedorRodada = a1
+        console.log(vencedorRodada)
+        console.log(rodada)
     } else if (((b2 == a2 && b2 == c2) || (b2 == a3 && b2 == c1) || (b2 == b1 && b2 == b3)) && b2 != "") {
         vencedor = b2
+        rodada++
+        vencedorRodada = b2
     } else if (((c3 == c2 && c3 == c1) || (c3 == b3 && c3 == a3)) && c3!="") {
         vencedor = c3
+        rodada++
+        vencedorRodada = c3
     } else if (a1 != "" && a2 != "" && a3 != "" && b1 != "" && b2 != "" && b3 != "" && c1 != "" && c2 != "" && c3 != ""
      && vencedor == "") {
          await sleep(50)
@@ -65,8 +81,13 @@ async function vencedor () {
         gameOver = true
         await sleep(50)
         alert('O vencedor da rodada foi o jogador: ' + vencedor)
+        vencRodada()
+    
+        
+        }
+        
     }
-}
+
 
 function sleep(ms){
     return new Promise(resolve => setTimeout(resolve,ms))
@@ -98,4 +119,77 @@ function reiniciarGame() {
     document.getElementById("c3").setAttribute("jogada", "")
 
     marcador()
+}
+
+function contador() {
+    var nome1 = document.getElementById("jogador1").setAttribute("value",primeiroPlayer)
+    var nome2 = document.getElementById("jogador2").setAttribute("value",segundoPlayer)
+}
+
+async function vencRodada() {
+    if (rodada == 1 && vencedorRodada == player1) {
+        vencedorRodada1 = player1
+        document.getElementById("count1").innerHTML = "<img src='imagens/letra-x.png'>"
+        console.log(vencedorRodada1)
+    } else if ((rodada == 1 && vencedorRodada == player2)) {
+        vencedorRodada1 = player2
+        document.getElementById("count2").innerHTML = "<img src='imagens/letra-o.png'>"
+    }
+    if (rodada == 2 && vencedorRodada == player1) {
+        vencedorRodada2 = player1
+        document.getElementById("count3").innerHTML = "<img src='imagens/letra-x.png'>"
+    } else if ((rodada == 2 && vencedorRodada == player2)) {
+        vencedorRodada2 = player2
+        document.getElementById("count4").innerHTML = "<img src='imagens/letra-o.png'>"
+    }
+    if (rodada == 3 && vencedorRodada == player1) {
+        vencedorRodada3 = player1
+        document.getElementById("count5").innerHTML = "<img src='imagens/letra-x.png'>"
+        console.log(rodada)
+    } else if ((rodada == 3 && vencedorRodada == player2)) {
+        vencedorRodada3 = player2
+        document.getElementById("count6").innerHTML = "<img src='imagens/letra-o.png'>"
+        console.log(rodada)
+    }
+
+    //lógica para definir vencedor da melhor de 3
+
+    if (((vencedorRodada1 == vencedorRodada2) || (vencedorRodada1 == vencedorRodada3)) && vencedorRodada1 != "") {
+        if (vencedorRodada1 = "x") {
+            gameOverRodada = true
+            await sleep(50)
+            alert(primeiroPlayer + (' venceu a melhor de 3. Reinicie o game e as rodadas'))
+        } else if (vencedorRodada1 = "o"){
+            gameOverRodada = true
+            await sleep(50)
+            alert(segundoPlayer + (' venceu a melhor de 3. Reinicie o game e as rodadas'))
+        }
+    } if ((vencedorRodada2 == vencedorRodada3) && vencedorRodada2 != "") {
+        if (vencedorRodada2 = "x") {
+            gameOverRodada = true
+            await sleep(50)
+            alert(primeiroPlayer + (' venceu a melhor de 3. Reinicie o game e as rodadas'))
+        } else if ((vencedorRodada2 = "o")) {
+            gameOverRodada= true
+            await sleep(50)
+            alert(segundoPlayer + (' venceu a melhor de 3. Reinicie o game e as rodadas'))        }
+    }
+
+    vencedorRodada = ""
+}
+
+function reiniciarRodada() {
+    rodada = 0
+    gameOverRodada = false
+    vencedorRodada = ""
+    vencedorRodada1 = ""
+    vencedorRodada2 = ""
+    vencedorRodada3 = ""
+    document.getElementById("count1").innerHTML = ""
+    document.getElementById("count2").innerHTML = ""
+    document.getElementById("count3").innerHTML = ""
+    document.getElementById("count4").innerHTML = ""
+    document.getElementById("count5").innerHTML = ""
+    document.getElementById("count6").innerHTML = ""
+
 }

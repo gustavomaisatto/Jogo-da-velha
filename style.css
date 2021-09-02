@@ -1,7 +1,4 @@
-@font-face {
-    font-family: fonte;
-    src: url(fonte/Amatic_SC/AmaticSC-Regular.ttf);
-}
+
 @font-face {
     font-family: fonte-bold;
     src: url(fonte/Amatic_SC/AmaticSC-Bold.ttf);
@@ -22,6 +19,8 @@ p {
 }
 #marcador {
     margin-top: 100px;
+    height: 20px;
+    position: absolute;
 }
 
 #marcador img {
@@ -59,4 +58,40 @@ button:hover {
 .botao img {
     height: 90px;
     margin-left: -12px;
+}
+body > #container-contador {
+    display: flex;
+    height: 1px;
+    width: 100%;
+    justify-content: right;
+    margin-right: 150px;
+
+}
+#contadorVitorias {
+    background-color: black;
+    margin-top: 30px; 
+    position: relative;
+}
+.count-bloco {
+    border: 1px solid white;
+    height: 50px;
+    width: 50px;
+    margin-left: 50px;
+}
+#nomes {
+    position: absolute;
+}
+#nomes input {
+    width: 70px;
+}
+
+#nomes input:last-child{
+    margin-left: 20px;
+    margin-right: -10px;
+}
+
+.count-bloco img {
+    height: 50px;
+    margin-left: -7px;
+
 }

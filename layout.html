@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Velha</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imagens/quadrado.png" type="image/x-icon">
 </head>
 <body>
     <div id="marcador" style="display: flex; justify-content: center;">
@@ -31,7 +32,29 @@
          </div>
                     
     </div>
-    <button onclick="reiniciarGame()"><p>Reiniciar Game</p></button>
+    <button onclick="reiniciarGame()" style="margin-right: 150px;"><p>Reiniciar Game</p></button>
+    <button onclick="reiniciarRodada()" style="margin-left: 150px;">Reiniciar rodadas</button>
+
+    <div id="container-contador">
+        <div id="nomes">
+            <input id="jogador1" type="text" value="" disabled>
+            <input id="jogador2" type="text" value="" disabled>
+        </div>
+        <div id="contadorVitorias">
+            <div id="row1" class="row" rowVencedor="">
+                <div id="count1" class="count-bloco"></div>
+                <div id="count2" class="count-bloco"></div>
+            </div>
+            <div id="row2" class="row" vencedor="">
+                <div id="count3" class="count-bloco"></div>
+                <div id="count4" class="count-bloco"></div>
+            </div>
+            <div id="row3" class="row" vencedor="">
+                <div id="count5" class="count-bloco"></div>
+                <div id="count6" class="count-bloco"></div>
+            </div>
+        </div>
+    </div>
 
 
 
