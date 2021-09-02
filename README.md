@@ -10,8 +10,9 @@
 <li>Melhor de 3</li>
 <li>Vencedor de cada rodada aparece ao lado direito</li>
 <li>Alerta para cada vencedor da rodada e para o vencedor da melhor de 3</li>
-<li>botões de reiniciar Rodadas e reiniciar game. (reiniciar rodadas) reinicia a melhor de 3 e (reiniciar game) reinicia a tela do jogo / gameOver</li>
+<li>botão de reiniciar game.(reiniciar game) reinicia a tela do jogo / gameOver e se a melhor de 3 acabar, ele reinicia a melhor de 3 também</li>
 </ul>
+
 
 <p>Consegui treinar minha lógica de programação, e aprendi novas funções do javascript utilizando o DOM.</p>
 
